@@ -3,9 +3,11 @@ package hu.masterfield.testcases;
 import hu.masterfield.browser.WebBrowser;
 import hu.masterfield.browser.WebBrowserType;
 import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.extension.TestWatcher;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
