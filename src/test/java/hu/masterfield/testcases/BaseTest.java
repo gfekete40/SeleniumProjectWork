@@ -1,0 +1,32 @@
+package hu.masterfield.testcases;
+
+import hu.masterfield.browser.WebBrowser;
+import hu.masterfield.browser.WebBrowserType;
+import org.apache.logging.log4j.LogManager;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.extension.TestWatcher;
+import org.openqa.selenium.WebDriver;
+
+import java.time.Duration;
+
+/**
+ * A teszt osztalyok mindegyike ebböl fogja örökölni az altalanos elvart, minden
+ * osztalyban hasznalt metodusokat es JUnit annotaciokat.
+ */
+public class BaseTest implements TestWatcher {
+    protected static WebDriver driver = null;
+    protected static WebDriverWait wait = null;
+
+    protected static Logger logger = LogManager.getLogger(BaseTest.class);
+
+    @BeforeAll
+    public static void setup() {
+        logger.info("BaseTest setup called.");
+        driver = WebBrowser.createDriver(WebBrowserType.Chrome);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        driver.manage().window().maximize();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+        logger.info("BaseTest.setup WebDriver started");
+    }
+}
