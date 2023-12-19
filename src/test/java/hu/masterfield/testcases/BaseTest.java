@@ -20,29 +20,34 @@ import java.io.IOException;
 import java.time.Duration;
 
 /**
- * A teszt osztalyok mindegyike ebböl fogja örökölni az altalanos elvart, minden
- * osztalyban hasznalt metodusokat es JUnit annotaciokat.
+ * A teszt osztályok mindegyike ebből fogja örökölni az általánosan elvárt, minden
+ * minden osztályban használt metódusokat és JUnit annotációkat.
  */
+
 public class BaseTest implements TestWatcher {
+
     protected static WebDriver driver = null;
     protected static WebDriverWait wait = null;
     private static ConfigData configData = new ConfigData();
-    private static GlobalTestData globalTestData = new GlobalTestData();
+    private static GlobalTestData globalTestData = new  GlobalTestData();
     protected static Logger logger = LogManager.getLogger(BaseTest.class);
 
     @BeforeAll
     public static void setup() {
-        logger.info("BaseTest setup called.");
-        driver = WebBrowser.createDriver(WebBrowserType.Chrome);
+        logger.info("BaseTest.setup called.");
+        driver = WebBrowser.createDriver(WebBrowserType.ChromeSM);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         driver.manage().window().maximize();
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        String baseUrl = configData.getProperty(Consts.APPLICATION_URL);
-        driver.get(baseUrl);
-        logger.info("BaseTest.setup " + baseUrl + " opened...");
+        logger.info("BaseTest.setup WebDriver started.");
+
+        String baseURL = configData.getProperty(Consts.APPLICATION_URL);
+        driver.get(baseURL);
+        logger.info("BaseTest.setup " + baseURL + " opened...");
     }
+
     @AfterAll
-    public static void cleanup () {
+    public static void cleanup() {
         logger.info("BaseTest.cleanup called...");
 
         driver.quit();
@@ -50,21 +55,22 @@ public class BaseTest implements TestWatcher {
         logger.info("BaseTest.cleanup WebDriver quit...");
     }
 
-    public static void takeScreenshot() throws IOException {
+    public static void takesScreenshot() throws IOException {
         Screenshot.takesScreenshot(driver);
     }
 
     @Override
     public void testFailed(ExtensionContext context, Throwable cause) {
         TestWatcher.super.testFailed(context, cause);
-        logger.error("Error occured! \n Context: " + context.getDisplayName() + "\n" + "Cause: " + cause.getCause().getMessage());
+        logger.error("Error occured! \n Context: " + context.getDisplayName() + "\n" +
+                "Cause: " + cause.getCause().getMessage());
         logger.trace("Stacktrace: " + cause.getStackTrace());
         try {
-            takeScreenshot();
+            takesScreenshot();
         } catch (IOException ex) {
-            logger.warn("Exception when took a screenshot : " + ex.getMessage());
+            logger.warn("Exception when took a screensot : " + ex.getMessage());
             throw new RuntimeException();
         }
-        Allure.addAttachment("Hiba tortent!", cause.getCause().getMessage());
+        Allure.addAttachment("Hiba történt!", cause.getCause().getMessage());
     }
 }

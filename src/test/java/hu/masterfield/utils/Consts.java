@@ -1,30 +1,28 @@
 package hu.masterfield.utils;
-
-
 /**
- * Ez az osztaly konstansokat tartalmaz, amelyeket külsö forrasbol, property file (.properties)
- * olvasunk be.
+ * Ez az osztály konstansokat tartalmaz, amelyeket külső forrásból, property fileból (.properties)
+ * olvasunk be
+ *
  */
 
 public class Consts {
-    // Konstansok az applikaciohoz
+    // Konstansok az applikációhoz
     public static final String APPLICATION_URL = "application.url";
 
-    // Kontansokhoz az eleresi utakhoz
+    // Konstansok az elérési utakhoz
     public static final String CONFIG_PROPERTIES = "/config.properties";
     public static final String GLOBAL_TEST_DATA_PROPERTIES = "/globalTestData.properties";
     public static final String SCREENSHOTS_FOLDER = System.getProperty("user.dir")
-            .replace("\\", "/") + "targer/screenshot";
+            .replace("\\", "/") + "/target/screenshots";
 
-    // Konstansok a Loginhoz
+    // Konstatnsok a Loginhoz
     public static final String LOGIN_USERNAME = "login.userName";
     public static final String LOGIN_PASSWORD = "login.password";
 
-
-    // Konstansok a regisztraciohoz
+    // Konstansok a regisztrációhoz
     public static final String REG_TITLE = "reg.title";
-    public static final String REG_FIRSTNAME = "reg.firstName";
-    public static final String REG_LASTNAME = "reg.lastName";
+    public static final String REG_FIRST_NAME = "reg.firstName";
+    public static final String REG_LAST_NAME = "reg.lastName";
     public static final String REG_GENDER = "reg.gender";
     public static final String REG_DATE_OF_BIRTH = "reg.dateOfBirth";
     public static final String REG_SOCIAL_SECURITY_NUMBER = "reg.socialSecurityNumber";
@@ -37,10 +35,10 @@ public class Consts {
     public static final String REG_POSTAL_CODE = "reg.postalCode";
     public static final String REG_COUNTRY = "reg.country";
     public static final String REG_HOME_PHONE = "reg.homePhone";
-    public static final String REG_MOBIL_PHONE = "reg.mobilPhone";
+    public static final String REG_MOBILE_PHONE = "reg.mobilePhone";
     public static final String REG_WORK_PHONE = "reg.workPhone";
 
-    // Konstansok a profil adatok modositasahoz
+    // Konstansok a profil adatok módosításához
 
     public static final String MOD_TITLE = "mod.title";
     public static final String MOD_FIRST_NAME = "mod.firstName";
@@ -51,21 +49,8 @@ public class Consts {
     public static final String MOD_POSTAL_CODE = "mod.postalCode";
     public static final String MOD_COUNTRY = "mod.country";
     public static final String MOD_HOME_PHONE = "mod.homePhone";
-    public static final String MOD_MOBIL_PHONE = "mod.mobilPhone";
+    public static final String MOD_MOBILE_PHONE = "mod.mobilePhone";
     public static final String MOD_WORK_PHONE = "mod.workPhone";
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
