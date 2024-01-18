@@ -1,8 +1,9 @@
 package hu.masterfield.pages;
 
-/* Bejelentkezesi kepernyo osztalya.
+/* Bejelentkezési képernyő osztálya.
  */
 
+import hu.masterfield.utils.GlobalTestData;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
@@ -142,17 +143,4 @@ public class LoginPage extends BasePage {
         return isCookieVisible;
     }
 
-    public void setTextbox(WebElement webElement, String webElementName,String text) {
-        if (webElement.getText().isEmpty()) {
-            // TO DO NOTHING
-        } else {
-            try {
-                webElement.clear();
-                logger.trace(webElementName + ".sendKeys() called");
-            } catch (Exception ex) {
-                logger.warn(webElementName + " textbox cannot clear.");
-            }
-        }
-        webElement.sendKeys(text);
-    }
 }
