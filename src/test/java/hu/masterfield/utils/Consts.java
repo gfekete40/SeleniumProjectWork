@@ -1,4 +1,5 @@
 package hu.masterfield.utils;
+
 /**
  * Ez az osztály konstansokat tartalmaz, amelyeket külső forrásból, property fileból (.properties)
  * olvasunk be
@@ -11,13 +12,27 @@ public class Consts {
 
     // Konstansok az elérési utakhoz
     public static final String CONFIG_PROPERTIES = "/config.properties";
-    public static final String GLOBAL_TEST_DATA_PROPERTIES = "/globalTestData.properties";
+    public static final String GLOBAL_TEST_DATA_PROPERTIES = "/GlobalTestData.properties";
     public static final String SCREENSHOTS_FOLDER = System.getProperty("user.dir")
             .replace("\\", "/") + "/target/screenshots";
 
     // Konstatnsok a Loginhoz
     public static final String LOGIN_USERNAME = "login.userName";
     public static final String LOGIN_PASSWORD = "login.password";
+
+    // Konstatnsok a Savingshez
+
+    public static final String ACCOUNT_TYPES_SAVINGS = "Savings";
+
+    public static final String ACCOUNT_TYPES_MONEY_MARKET = "Money Market";
+
+    public static final String OWNERSHIP_TYPES_INDIVIDUAL = "Individual";
+
+    public static final String OWNERSHIP_TYPES_JOINT = "Joint";
+
+    public static final String SAVINGS_DATA_CSV = "/savingsData.csv";
+
+    public static final String SAVE_SAVINGS_DATA_CSV = "target/dumpSavings.csv";
 
     // Konstansok a regisztrációhoz
     public static final String REG_TITLE = "reg.title";

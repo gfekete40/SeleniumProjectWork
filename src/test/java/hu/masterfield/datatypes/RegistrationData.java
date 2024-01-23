@@ -13,7 +13,7 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class RegistrationData {
     /**
-     *  Hozzáférés biztosítása a globalTestData.properties filehoz.
+     *  Hozzáférés biztosítása a GlobalTestData.properties filehoz.
      */
 
     protected static GlobalTestData globalTestData = new GlobalTestData();
@@ -36,7 +36,7 @@ public class RegistrationData {
     private String mobilePhone;
     private String workPhone;
 
-    /** Paraméter nélküli konstruktor, amivel a globalTestData.properties fileból
+    /** Paraméter nélküli konstruktor, amivel a GlobalTestData.properties fileból
      * hozzáférünk a tesztadatokhoz.
      *
      * A példányosításnál nem kell mindenhol felsorolni az összes adatot.
@@ -59,7 +59,7 @@ public class RegistrationData {
         this.country = globalTestData.getProperty(Consts.REG_COUNTRY);
         this.homePhone = globalTestData.getProperty(Consts.REG_HOME_PHONE);
         this.mobilePhone = globalTestData.getProperty(Consts.REG_MOBILE_PHONE);
-        this.workPhone = globalTestData.getProperty(Consts.REG_WORK_PHONE;
+        this.workPhone = globalTestData.getProperty(Consts.REG_WORK_PHONE);
     }
 
 }

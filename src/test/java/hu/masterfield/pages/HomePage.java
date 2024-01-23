@@ -212,7 +212,7 @@ public class HomePage extends BasePage{
      * @return true, ha betöltődött a HomePage
      */
     @Step("HomePage betöltődésének ellenőrzése.")
-    public boolean isLoadeed() {
+    public boolean isLoaded() {
         logger.info("HomePage.isLoaded() called");
         boolean isLoaded = isLoaded(savingsMenu) && isLoaded(checkingMenu)
                 && isLoaded(avatarDropdownMenuButton);

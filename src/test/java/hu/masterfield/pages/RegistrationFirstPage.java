@@ -23,11 +23,11 @@ public class RegistrationFirstPage extends BasePage{
     private WebElement titleSelect;
 
     // keresztnév megadása
-    @FindBy(id="firstname")
+    @FindBy(id="firstName")
     private WebElement firstnameInput;
 
     // vezetéknév megadása
-    @FindBy(id="lastname")
+    @FindBy(id="lastName")
     private WebElement lastnameInput;
 
     // férfi nem kiválasztása
@@ -71,7 +71,7 @@ public class RegistrationFirstPage extends BasePage{
      * @return true , ha az oldal betöltődött, megjelentek az elvárt elemek és
      * kattinthatóak
      */
-    @Step("Regisztrációs oldal betöltésének ellenőrzése")
+    @Step("Regisztrációs úrlap 1. oldalának betöltésének ellenőrzése")
     public boolean isLoaded() {
         boolean isLoaded = isLoaded(titleSelect)
                 && isLoaded(firstnameInput)
@@ -90,7 +90,7 @@ public class RegistrationFirstPage extends BasePage{
 
     /**
      * Példányosítjuk a RegistrationData osztályt, hogy az oldalon található input mezőket
-     * ki tudjuk tölteni a globalTestData.properties fileból felolvasott tesztadatokkal.
+     * ki tudjuk tölteni a GlobalTestData.properties fileból felolvasott tesztadatokkal.
      *
      */
 
@@ -104,7 +104,7 @@ public class RegistrationFirstPage extends BasePage{
         logger.info("registrationFirstPage() called.");
 
         logger.trace("titleSelect.select");
-        Select selectTitle = new Select(titleSelect)
+        Select selectTitle = new Select(titleSelect);
         selectTitle.selectByVisibleText(registrationData.getTitle());
 
         setTextbox(firstnameInput, "firstnameInput"

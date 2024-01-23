@@ -18,6 +18,7 @@ import org.junit.jupiter.api.TestInfo;
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 /**
  *
@@ -47,19 +48,45 @@ public class TC2_Registrationtest extends BaseTest{
         Screenshot.takesScreenshot(driver);
         logger.info("Login page will be opened...");
 
-        LoginPage loginPage = new LoginPage(driver);
-        assertTrue(loginPage.isLoaded());
-        loginPage.registrationStart();
+        LoginPage loginPageOne = new LoginPage(driver);
+        assertTrue(loginPageOne.isLoaded());
+        loginPageOne.registrationStart();
 
 
         RegistrationData registrationData = new RegistrationData();
         logger.info(registrationData);
 
+        // Regisztrációs űrlap első oldalának kitöltése
         logger.info("RegistrationFirstPage betöltése");
         RegistrationFirstPage registrationFirstPage = new RegistrationFirstPage(driver);
         assertTrue(registrationFirstPage.isLoaded());
+        Screenshot.takesScreenshot(driver);
         RegistrationSecondPage registrationSecondPage = registrationFirstPage
                 .registrationFirstPage();
+
+        // Regisztrációs űrlap második oldalának kitöltése
+        logger.info("RegistrationSecondPage betöltése");
+        assertTrue(registrationSecondPage.isLoaded());
+        Screenshot.takesScreenshot(driver);
+        LoginPage loginPageTwo = registrationSecondPage.registrationSecondPage();
+
+        // Ellenőrzi, hogy a regisztráció sikeres volt-e, erről megjelent-e a szöveg
+        logger.info("Regisztráció sikerességének ellenőrzése");
+        assertTrue(loginPageTwo.registrationIsSuccessful());
+        Screenshot.takesScreenshot(driver);
+
+        //        /\
+        //        ||
+        //        \/
+
+        if (loginPageTwo.registrationIsSuccessful()) {
+            logger.info("TEST PASSED");
+            // TEST PASSED
+        } else {
+            fail("Registration failed");
+        }
+
+
 
 
     }

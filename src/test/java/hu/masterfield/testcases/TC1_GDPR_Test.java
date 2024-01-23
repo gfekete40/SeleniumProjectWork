@@ -47,11 +47,13 @@ public class TC1_GDPR_Test extends BaseTest{
         assertTrue(loginPage.isLoaded());
 
         /*
-            A sütik elfogadasara szolgalo ablak vizsgalata, hogy
-            az elfogadas utan lathato-e meg.
+            A sütik elfogadására szolgáló ablak vizsgálata, hogy
+            az elfogadás után látható-e még.
          */
+
         assertFalse(loginPage.isCookieVisible());
         Screenshot.takesScreenshot(driver);
+
         Thread.sleep(5000);
     }
 }

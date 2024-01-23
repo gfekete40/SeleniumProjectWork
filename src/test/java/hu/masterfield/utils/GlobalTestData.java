@@ -9,7 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * A globalTestData.properties feolvasasa
+ * A GlobalTestData.properties feolvasasa
  */
 public class GlobalTestData extends Properties {
     protected static Logger logger = LogManager.getLogger(GlobalTestData.class);
